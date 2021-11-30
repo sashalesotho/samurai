@@ -26,6 +26,11 @@ let state = {
 			{id: 5, message: 'Salut!'},
 			{id: 6, message: 'Zdravstvuyte'},
 		],
+		friends: [
+			{id: 1, name: 'Lena'},
+			{id: 2, name: 'Keanu'},
+			{id: 1, name: 'Eduardo'},
+		]
 	}
 	
 }
