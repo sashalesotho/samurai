@@ -26,10 +26,12 @@ let state = {
 			{id: 5, message: 'Salut!'},
 			{id: 6, message: 'Zdravstvuyte'},
 		],
+	},
+	sidebar: {
 		friends: [
-			{id: 1, name: 'Lena'},
-			{id: 2, name: 'Keanu'},
-			{id: 1, name: 'Eduardo'},
+			{id:1, name: 'Keanu', picPath: 'https://images.thestar.com/9E0OXPTu-XPtSbKk2HIUJPgK4O0=/1086x869/smart/filters:cb(1633563181414)/https://www.thestar.com/content/dam/thestar/entertainment/music/2021/10/06/keanu-reeves-among-2021-inductees-to-canadas-walk-of-fame/20211006191012-615e2d691164443e59995476jpeg.jpg'},
+			{id:2, name: 'Eduardo', picPath: 'https://st2.depositphotos.com/1545689/10674/i/600/depositphotos_106749950-stock-photo-dog-in-hat-and-sunglasses.jpg'},
+			{id:3, name: 'Lena', picPath: 'https://s1.1zoom.ru/big0/266/354971-svetik.jpg'}
 		]
 	}
 	
