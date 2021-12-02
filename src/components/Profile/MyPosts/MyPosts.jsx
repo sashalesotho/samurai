@@ -2,13 +2,16 @@ import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = ({posts}) => {
+const MyPosts = (props) => {
 
-	const postsItems = posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+	const postsItems = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
 
 	let newPost = React.createRef();
-	let addPost = () => {let text = newPost.current.value;
-		alert(text)}
+	let addPost = () => {
+		let text = newPost.current.value;
+		props.addPost(text);
+		newPost.current.value = '';
+	}
 
 	
   return (
