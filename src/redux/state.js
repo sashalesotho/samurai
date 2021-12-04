@@ -28,6 +28,7 @@ let state = {
 			{id: 5, message: 'Salut!'},
 			{id: 6, message: 'Zdravstvuyte'},
 		],
+		newMessageText: '',
 	},
 	sidebar: {
 		friends: [
