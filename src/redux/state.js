@@ -51,6 +51,21 @@ export let addPost = () => {
 	rerender(state);
 }
 
+export let addMessage = () => {
+	let newMessage = {
+		id: 18,
+		message: state.dialogsPage.newMessageText,
+	}
+	state.dialogsPage.messages.push(newMessage);
+	state.dialogsPage.newMessageText = '';
+	rerender(state);
+}
+
+export let updateNewMessageText = (newText) => {
+	state.dialogsPage.newMessageText = newText;
+	rerender(state);
+}
+
 export let updateNewPostText = (newText) => {
 	
 	state.profilePage.newPostText = newText;

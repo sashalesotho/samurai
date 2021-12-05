@@ -28,7 +28,6 @@ const MyPosts = (props) => {
 			<div>
 				<button onClick={addPost}>add post</button>
 			</div>
-        
       </div>
       <div className={s.posts}>
 			{postsItems}
