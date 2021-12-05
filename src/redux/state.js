@@ -1,5 +1,6 @@
-import { rerender } from "../render";
-
+let rerender = () => {
+	console.log('state changed')
+}
 
 let state = {
 	profilePage: {
@@ -40,7 +41,7 @@ let state = {
 	
 }
 
-export let addPost = () => {
+export const addPost = () => {
 	let newPost = {
 		id: 5,
 		message: state.profilePage.newPostText,
@@ -51,7 +52,7 @@ export let addPost = () => {
 	rerender(state);
 }
 
-export let addMessage = () => {
+export const addMessage = () => {
 	let newMessage = {
 		id: 18,
 		message: state.dialogsPage.newMessageText,
@@ -61,17 +62,20 @@ export let addMessage = () => {
 	rerender(state);
 }
 
-export let updateNewMessageText = (newText) => {
+export const updateNewMessageText = (newText) => {
 	state.dialogsPage.newMessageText = newText;
 	rerender(state);
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
 	
 	state.profilePage.newPostText = newText;
 	rerender(state);
 }
 
+export const subscribe = (observer) => {
+rerender = observer;
+}
 
 
 export default state;
