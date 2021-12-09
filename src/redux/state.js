@@ -1,3 +1,10 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
+
+
 let store = {
 	_state: {
 		profilePage: {
@@ -47,35 +54,35 @@ let store = {
 		return this._state;
 	},
 
-	addPost() {
-		let newPost = {
-			id: 5,
-			message: this._state.profilePage.newPostText,
-			likesCount: 0,
-		}
-		this._state.profilePage.posts.push(newPost);
-		this._state.profilePage.newPostText = '';
-		this._rerender(this._state);
-	},
-	addMessage() {
-		let newMessage = {
-			id: 18,
-			message: this._state.dialogsPage.newMessageText,
-		}
-		this._state.dialogsPage.messages.push(newMessage);
-		this._state.dialogsPage.newMessageText = '';
-		this._rerender(this._state);
-	},
-	updateNewPostText(newText) {
-		this._state.profilePage.newPostText = newText;
-		this._rerender(this._state);
-	},
-	updateNewMessageText(newText) {
-		this._state.dialogsPage.newMessageText = newText;
-		this._rerender(this._state);
-	},
+	// addPost() {
+	// 	let newPost = {
+	// 		id: 5,
+	// 		message: this._state.profilePage.newPostText,
+	// 		likesCount: 0,
+	// 	}
+	// 	this._state.profilePage.posts.push(newPost);
+	// 	this._state.profilePage.newPostText = '';
+	// 	this._rerender(this._state);
+	// },
+	// addMessage() {
+	// 	let newMessage = {
+	// 		id: 18,
+	// 		message: this._state.dialogsPage.newMessageText,
+	// 	}
+	// 	this._state.dialogsPage.messages.push(newMessage);
+	// 	this._state.dialogsPage.newMessageText = '';
+	// 	this._rerender(this._state);
+	// },
+	// updateNewPostText(newText) {
+	// 	this._state.profilePage.newPostText = newText;
+	// 	this._rerender(this._state);
+	// },
+	// updateNewMessageText(newText) {
+	// 	this._state.dialogsPage.newMessageText = newText;
+	// 	this._rerender(this._state);
+	// },
 	dispatch(action) {
-		if (action.type === 'ADD-POST') {
+		if (action.type === ADD_POST) {
 			let newPost = {
 				id: 5,
 				message: this._state.profilePage.newPostText,
@@ -84,24 +91,35 @@ let store = {
 			this._state.profilePage.posts.push(newPost);
 			this._state.profilePage.newPostText = '';
 			this._rerender(this._state);
-		} else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+		} else if (action.type === UPDATE_NEW_POST_TEXT) {
 			this._state.profilePage.newPostText = action.newText;
 		this._rerender(this._state);
-		} else if (action.type === 'ADD-MESSAGE') {
-			let newMessage = {
-				id: 18,
-				message: this._state.dialogsPage.newMessageText,
-			}
-			this._state.dialogsPage.messages.push(newMessage);
-			this._state.dialogsPage.newMessageText = '';
-			this._rerender(this._state);
-		} else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-			this._state.dialogsPage.newMessageText = action.newText;
+		} else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+			this._state.dialogsPage.newMessageText = action.body;
 		this._rerender(this._state);
+		}else if (action.type === ADD_MESSAGE) {
+			let body = this._state.dialogsPage.newMessageText;
+			this._state.dialogsPage.newMessageText = '';
+			this._state.dialogsPage.messages.push({id: 16, message: body});
+			this._rerender(this._state);
 		}
 	}
-	
-	
 }
+
+export const addPostActionCreator = () => {
+	return {type: ADD_POST}
+}
+export const updateNewPostTextActionCreator = (text) => {
+	return {type: UPDATE_NEW_POST_TEXT, newText: text}
+}
+
+export const addMessageActionCreator = () => {
+	return {type: ADD_MESSAGE};
+}
+
+export const updateNewMessageTextActionCreator = (body) => {
+	return {type: UPDATE_NEW_MESSAGE_TEXT, body: body}
+}
+
 export default store;
 window.store = store;
