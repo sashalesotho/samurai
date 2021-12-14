@@ -3,19 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import store from './redux/redux-store';
-import StoreContext from './store-context';
+import {Provider} from 'react-redux';
 
-let rerender = (state) => {
+let rerender = () => {
 	ReactDOM.render(
-		<StoreContext.Provider value={store}>
+		<Provider store={store}>
 			<App />
-		</StoreContext.Provider>
+		</Provider>
 		,
 	 document.getElementById('root')
   );
 }
-
-
 
 rerender(store.getState());
 
